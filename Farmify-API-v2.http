@@ -1,0 +1,6 @@
+@Farmify_API_v2_HostAddress = http://localhost:5039
+
+GET {{Farmify_API_v2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
