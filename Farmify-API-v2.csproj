@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\Api\Controllers\" />
     <Folder Include="src\Shared\" />
     <Folder Include="src\Worker\" />
     <Folder Include="tests\NewFolder\" />

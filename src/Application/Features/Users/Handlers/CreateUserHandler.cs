@@ -20,7 +20,7 @@ namespace Farmify_API_v2.src.Application.Features.Users.Handlers
 
         public async Task<UserDto> Handle (CreateUserCommand request, CancellationToken ct)
         {
-            var exist = await _userRepository.GetByUsername(request.Username, ct);
+            var exist = await _userRepository.GetByUsernameAsync(request.Username, ct);
             if (exist != null)
                 throw new Exception("User already exists");
 
