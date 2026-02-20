@@ -14,7 +14,6 @@
 
         public User(string firstName, string lastName, string email, string username)
         {
-            ID = ;
             FirstName = firstName;
             LastName = lastName;
             Username = username;
