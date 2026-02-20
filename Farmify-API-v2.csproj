@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="src\Api\Controllers\" />
-    <Folder Include="src\Application\" />
     <Folder Include="src\Infrastructure\" />
     <Folder Include="src\Shared\" />
     <Folder Include="src\Worker\" />
