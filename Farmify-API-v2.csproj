@@ -8,13 +8,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="src\Core\Entities\NewFolder\**" />
+    <Content Remove="src\Core\Entities\NewFolder\**" />
+    <EmbeddedResource Remove="src\Core\Entities\NewFolder\**" />
+    <None Remove="src\Core\Entities\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="src\Api\Controllers\" />
     <Folder Include="src\Application\" />
-    <Folder Include="src\Core\Entities\NewFolder\" />
     <Folder Include="src\Infrastructure\" />
     <Folder Include="src\Shared\" />
     <Folder Include="src\Worker\" />
