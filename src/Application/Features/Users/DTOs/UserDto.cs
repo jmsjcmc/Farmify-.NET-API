@@ -5,5 +5,6 @@
         string FirstName,
         string Lastname,
         string Username,
-        string Email);
+        string Email,
+        bool IsActive);
 }
