@@ -1,6 +1,7 @@
 ﻿using Farmify_API_v2.src.Application.Features.Interfaces.UnitOfWork;
 using Farmify_API_v2.src.Application.Features.Users.Commands;
 using Farmify_API_v2.src.Application.Features.Users.DTOs;
+using Farmify_API_v2.src.Application.Interfaces;
 using Farmify_API_v2.src.Core.Entities;
 using Farmify_API_v2.src.Core.Interfaces.Repositories;
 using MediatR;
@@ -11,11 +12,13 @@ namespace Farmify_API_v2.src.Application.Features.Users.Handlers
     {
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IDateTimeProvider _dateTimeProvider;
 
-        public CreateUserHandler(IUserRepository userRepository, IUnitOfWork unitOfWork)
+        public CreateUserHandler(IUserRepository userRepository, IUnitOfWork unitOfWork, IDateTimeProvider dateTimeProvider)
         {
             _userRepository = userRepository;
             _unitOfWork = unitOfWork;
+            _dateTimeProvider = dateTimeProvider;
         }
 
         public async Task<UserDto> Handle (CreateUserCommand request, CancellationToken ct)
@@ -24,7 +27,8 @@ namespace Farmify_API_v2.src.Application.Features.Users.Handlers
             if (exist != null)
                 throw new Exception("User already exists");
 
-            var user = new User(request.FirstName, request.LastName, request.Username, request.Email);
+            var user = new User(_dateTimeProvider.Now);
+            user.SetProfile(request.FirstName, request.LastName, request.Username, request.Email);
 
             await _userRepository.AddAsync(user, ct);
             await _unitOfWork.SaveChangesAsync(ct);
@@ -35,7 +39,7 @@ namespace Farmify_API_v2.src.Application.Features.Users.Handlers
                 user.LastName,
                 user.Username,
                 user.Email,
-                user.IsActive);
+                user.Status);
         }
     }
 }

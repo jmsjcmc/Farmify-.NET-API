@@ -6,9 +6,14 @@ namespace Farmify_API_v2.src.Core.Interfaces.Repositories
     {
         Task<User?> GetByIDAsync(int id, CancellationToken ct);
         Task<User?> GetByUsernameAsync(string username, CancellationToken ct);
+        Task<(List<User> Items, int TotalCount)> GetPagedAsync(
+            int page,
+            int pageSize,
+            CancellationToken ct);
         Task<User?> GetByEmailAsync(string email, CancellationToken ct);
         Task<List<User>> GetAllAsync(CancellationToken ct);
         Task AddAsync(User user, CancellationToken ct);
         void Remove(User user);
     }
 }
+

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Farmify-API-v2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af9c821769bda87003d5e7d1ca5429e2c6c9a8b9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c276790765b83ea8f81a9dbf790ac538d43a8c26")]
 [assembly: System.Reflection.AssemblyProductAttribute("Farmify-API-v2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Farmify-API-v2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

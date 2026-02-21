@@ -1,4 +1,6 @@
-﻿namespace Farmify_API_v2.src.Application.Features.Users.DTOs
+﻿using Farmify_API_v2.src.Core.Enums;
+
+namespace Farmify_API_v2.src.Application.Features.Users.DTOs
 {
     public record UserDto(
         int ID,
@@ -6,5 +8,5 @@
         string Lastname,
         string Username,
         string Email,
-        bool IsActive);
+        UserStatus Status);
 }
