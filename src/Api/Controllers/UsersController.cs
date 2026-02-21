@@ -15,6 +15,14 @@ namespace Farmify_API_v2.src.Api.Controllers
         [HttpGet("users")]
         public async Task<IActionResult> GetAll() => Ok(await _mediator.Send(new GetAllUsersQuery()));
 
+        [HttpGet("users/page")]
+        public async Task<IActionResult> GetPaged(
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10)
+        {
+            return Ok(await _mediator.Send(new GetUsersPagedQuery(page, pageSize)));
+        }
+
         [HttpGet("user/{id}")]
         public async Task<IActionResult> Get(int id) => Ok(await _mediator.Send(new GetUserByIDQuery(id)));
 
