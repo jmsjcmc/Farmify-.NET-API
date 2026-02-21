@@ -33,4 +33,8 @@
     <Folder Include="tests\NewFolder\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\james\OneDrive\Desktop\Repositories\backend\Farmify-.NET-API\.editorconfig" />
+  </ItemGroup>
+
 </Project>

@@ -6,6 +6,7 @@ using Farmify_API_v2.src.Infrastructure.Persistence.Context;
 using Farmify_API_v2.src.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
+using Farmify_API_v2.src.Application.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddSingleton<IDateTimeProvider, PhillippineTimeProvider>();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserCommand).Assembly));
 

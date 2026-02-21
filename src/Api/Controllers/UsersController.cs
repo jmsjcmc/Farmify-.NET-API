@@ -12,16 +12,16 @@ namespace Farmify_API_v2.src.Api.Controllers
         private readonly IMediator _mediator;
         public UsersController(IMediator mediator) => _mediator = mediator;
 
-        [HttpGet]
+        [HttpGet("users")]
         public async Task<IActionResult> GetAll() => Ok(await _mediator.Send(new GetAllUsersQuery()));
 
-        [HttpGet("{id}")]
+        [HttpGet("user/{id}")]
         public async Task<IActionResult> Get(int id) => Ok(await _mediator.Send(new GetUserByIDQuery(id)));
 
-        [HttpPost]
+        [HttpPost("user/create")]
         public async Task<IActionResult> Create(CreateUserCommand request) => Ok(await _mediator.Send(request));
 
-        [HttpPut("{id}")]
+        [HttpPut("user/{id}/update")]
         public async Task<IActionResult> Update(int id, UpdateUserCommand request)
         {
             if (id != request.ID) return BadRequest();
@@ -29,7 +29,7 @@ namespace Farmify_API_v2.src.Api.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("user/{id}/delete")]
         public async Task<IActionResult> Delete(int id)
         {
             await _mediator.Send(new DeleteUserCommand(id));
