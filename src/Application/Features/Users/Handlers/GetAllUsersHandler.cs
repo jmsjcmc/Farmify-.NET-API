@@ -21,7 +21,7 @@ namespace Farmify_API_v2.src.Application.Features.Users.Handlers
                 u.LastName,
                 u.Username,
                 u.Email,
-                u.IsActive)).ToList();
+                u.Status)).ToList();
         }
 
     }

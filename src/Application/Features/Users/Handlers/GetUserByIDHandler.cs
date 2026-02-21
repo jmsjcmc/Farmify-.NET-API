@@ -22,7 +22,7 @@ namespace Farmify_API_v2.src.Application.Features.Users.Handlers
                 user.LastName,
                 user.Username,
                 user.Email,
-                user.IsActive);
+                user.Status);
         }
     }
 }
