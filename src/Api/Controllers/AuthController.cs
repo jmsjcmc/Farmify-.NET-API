@@ -22,7 +22,11 @@ namespace Farmify_API_v2.src.Api.Controllers
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             var user = await _userRepository.GetByEmailAsync(request.Email, HttpContext.RequestAborted);
-            if (user == null || !user.)
+            if (user == null || !user.CheckPassword(request.Password))
+                return Unauthorized();
+
+            var token = _tokenService.GenerateToken(user);
+            return Ok(new { token });
         }
     }
 }

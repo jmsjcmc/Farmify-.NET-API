@@ -28,7 +28,7 @@ namespace Farmify_API_v2.src.Application.Features.Users.Handlers
                 throw new Exception("User already exists");
 
             var user = new User(_dateTimeProvider.Now);
-            user.SetProfile(request.FirstName, request.LastName, request.Username, request.Email);
+            user.SetProfile(request.FirstName, request.LastName, request.Username, request.Email, request.Password);
 
             await _userRepository.AddAsync(user, ct);
             await _unitOfWork.SaveChangesAsync(ct);

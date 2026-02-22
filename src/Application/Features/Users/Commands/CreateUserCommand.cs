@@ -7,5 +7,6 @@ namespace Farmify_API_v2.src.Application.Features.Users.Commands
         string FirstName,
         string LastName,
         string Username,
-        string Email) : IRequest<UserDto>;
+        string Email,
+        string Password) : IRequest<UserDto>;
 }
